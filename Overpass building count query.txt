@@ -1,0 +1,21 @@
+[out:json];{{geocodeArea:Liverpool}}->.searchArea;
+(
+  
+node["building"](area.searchArea);
+way["building"](area.searchArea);
+relation["building"](area.searchArea);
+
+/*
+Buildings that are labelled as houses
+
+
+node["building"="house"](area.searchArea);
+way["building"="house"](area.searchArea);
+  relation["building"="house"](area.searchArea);
+*/
+  
+  
+);
+out body;
+>;
+out skel qt;
