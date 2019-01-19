@@ -1,0 +1,4 @@
+
+#Running tensor board
+cd to the directory where the network and log file is then run
+$ tensorboard --logdir=logfilename
