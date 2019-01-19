@@ -19,3 +19,5 @@ way["building"="house"](area.searchArea);
 out body;
 >;
 out skel qt;
+
+/* An overpass openstreetmap query which returns the number of buildings in Liverpool */
