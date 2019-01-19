@@ -105,7 +105,7 @@ georgquart.df = join(georgquart.points, georgquart@data, by="id")
 ################################################################################################################
 # Plots the geographic distribution of the photographs
 #fill gives color of the polygon, colour gives the color of the border, alpha is the transparency
-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1, fill='#99d8c9')+geom_point(data = pointsdat, aes(x = lon, y = lat), size=0.01, colour='brown', alpha = 0.5)+coord_map()+ theme(legend.position="none")+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1, fill='#99d8c9')+geom_point(data = pointsdat, aes(x = lon, y = lat), size=0.01, colour='brown', alpha = 0.5)+coord_map()+ theme(legend.position="none")+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))+xlab('longitude')+ylab('latitude')
 
 #################################################################################################################
 #Plots the geographic distribution of the photos
@@ -113,8 +113,8 @@ pointsgeo<-subset(pointsdat, pointsdat$georgprob>0.95)
 
 gg <- ggplot()
 
-plot1<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1)+geom_point(data = pointsgeo, aes(x = lon, y = lat, color=georgprob), size=1)+ scale_colour_gradient(low = "blue")+coord_map()
-plot2<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1)+geom_point(data = listedliverpool.df, aes(x = long, y = lat, color='white'), size=0.3)+coord_map()+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+plot1<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1)+geom_point(data = pointsgeo, aes(x = lon, y = lat, color=georgprob), size=1)+ scale_colour_gradient(low = "blue")+coord_map()+xlab('longitude')+ylab('latitude')
+plot2<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1)+geom_point(data = listedliverpool.df, aes(x = long, y = lat, color='white'), size=0.3)+coord_map()+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))+xlab('longitude')+ylab('latitude')
 
 
 #Creates a joint plot
@@ -125,11 +125,11 @@ grid.arrange(plot1, plot2, ncol=2)
 ##############################################################################################################
 #Plots the density distribution of the photographs and listed buildings
 
-plot1<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1,  fill=NA)+coord_map()+ggtitle("Distribution of streetview images with \n probability >0.95 of being Georgian style")+stat_density2d(data=pointsgeo, mapping=aes(x=lon, y=lat, fill=..level..), geom="polygon", alpha=0.3)+geom_polygon(data = georgquart.df, aes(x = long, y = lat),color = 'white', size = .1, fill=NA)+ theme(legend.position="none")+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+plot1<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1,  fill=NA)+coord_map()+ggtitle("Distribution of streetview images with \n probability >0.95 of being Georgian style")+stat_density2d(data=pointsgeo, mapping=aes(x=lon, y=lat, fill=..level..), geom="polygon", alpha=0.3)+geom_polygon(data = georgquart.df, aes(x = long, y = lat),color = 'white', size = .1, fill=NA)+ theme(legend.position="none")+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))+xlab('longitude')+ylab('latitude')
 plot1<-plot1+ theme(plot.title = element_text(color="black", size=12, face="bold.italic"))
-plot2<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1,  fill=NA)+coord_map()+stat_density2d(data=georgianbuild, mapping=aes(x=long, y=lat, fill=..level..), geom="polygon", alpha=0.3)+ggtitle("Distribution of buildings \n built in Georgian period")+geom_polygon(data = georgquart.df, aes(x = long, y = lat),color = 'white', size = .1, fill=NA)+ theme(legend.position="none")+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+plot2<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1,  fill=NA)+coord_map()+stat_density2d(data=georgianbuild, mapping=aes(x=long, y=lat, fill=..level..), geom="polygon", alpha=0.3)+ggtitle("Distribution of buildings \n built in Georgian period")+geom_polygon(data = georgquart.df, aes(x = long, y = lat),color = 'white', size = .1, fill=NA)+ theme(legend.position="none")+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))+xlab('longitude')+ylab('latitude')
 plot2<-plot2+ theme(plot.title = element_text(color="black", size=12, face="bold.italic"))
-plot3<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1,  fill=NA)+coord_map()+stat_density2d(data=georgianandvictbuild , mapping=aes(x=long, y=lat, fill=..level..), geom="polygon", alpha=0.3)+ggtitle("Distribution of buildings \n built in Georgian and Victorian period")+geom_polygon(data = georgquart.df, aes(x = long, y = lat),color = 'white', size = .1, fill=NA)+theme(legend.position="none")+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+plot3<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1,  fill=NA)+coord_map()+stat_density2d(data=georgianandvictbuild , mapping=aes(x=long, y=lat, fill=..level..), geom="polygon", alpha=0.3)+ggtitle("Distribution of buildings \n built in Georgian and Victorian period")+geom_polygon(data = georgquart.df, aes(x = long, y = lat),color = 'white', size = .1, fill=NA)+theme(legend.position="none")+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))+xlab('longitude')+ylab('latitude')
 plot3<-plot3+ theme(plot.title = element_text(color="black", size=12, face="bold.italic"))
 
 #Creates a joint plot
