@@ -114,7 +114,7 @@ pointsgeo<-subset(pointsdat, pointsdat$georgprob>0.95)
 gg <- ggplot()
 
 plot1<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1)+geom_point(data = pointsgeo, aes(x = lon, y = lat, color=georgprob), size=1)+ scale_colour_gradient(low = "blue")+coord_map()+xlab('longitude')+ylab('latitude')
-plot2<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1)+geom_point(data = listedliverpool.df, aes(x = long, y = lat, color='white'), size=0.3)+coord_map()+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))+xlab('longitude')+ylab('latitude')
+plot2<-gg+geom_polygon(data = Liverpool.df, aes(x = long, y = lat),color = 'black', size = .1)+geom_point(data = listedliverpool.df, aes(x = long, y = lat, color='white'), size=0.3)+coord_map()+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))+xlab('longitude')+ylab('latitude')+theme(legend.position="none")
 
 
 #Creates a joint plot
