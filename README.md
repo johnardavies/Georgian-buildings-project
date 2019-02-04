@@ -7,3 +7,6 @@ Final layer activations visualisations.ipynb - This takes the final layer activa
 Mapping code - This creates the maps in the post that are based on ggplot using R
 
 Street views sorted by probability - creates a series of street views sorted by probablity of containing Georgian architecture using Matplotlib
+
+If you want the network or the photos please get in touch, the retraining used the  
+<a href="https://www.tensorflow.org/hub/tutorials/image_retraining">Tensorflow image retraining tutorial</a>
