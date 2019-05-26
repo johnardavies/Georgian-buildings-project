@@ -16,7 +16,7 @@ cur = con.cursor()
 #Sets up the size of the plot
 plt.figure(figsize=(20,40), facecolor='white')
 
-#Sets up a subplot 10 rows by 50 columns
+#Sets up a subplot 10 rows by 5 columns
 subplot(10,5,50)
 
 
